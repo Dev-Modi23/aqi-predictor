@@ -1,10 +1,6 @@
 streamlit
 numpy
 plotly
-
-
-
-
-
-
-
+requests
+streamlit-folium
+folium

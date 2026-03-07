@@ -41,6 +41,43 @@ def get_aqi(city_name):
         "lon": lon
     }
 
+# ========== DYNAMIC SOURCE DETECTION FUNCTION ==========
+def get_city_sources(city_name, current_aqi):
+    """Dynamic pollution sources based on city + AQI level"""
+    # City-specific base pollution sources
+    city_base_sources = {
+        "Delhi": {"Vehicles 🚗": 45, "Factories 🏭": 25, "Construction 🏗️": 15, "Road Dust 🌫️": 10, "Household 👨‍👩‍👧": 5},
+        "Mumbai": {"Vehicles 🚗": 50, "Factories 🏭": 20, "Construction 🏗️": 15, "Road Dust 🌫️": 10, "Household 👨‍👩‍👧": 5},
+        "Surat": {"Factories 🏭": 35, "Vehicles 🚗": 30, "Construction 🏗️": 20, "Road Dust 🌫️": 10, "Household 👨‍👩‍👧": 5},
+        "Bangalore": {"Vehicles 🚗": 40, "Construction 🏗️": 25, "Factories 🏭": 20, "Road Dust 🌫️": 10, "Household 👨‍👩‍👧": 5},
+        "Kanpur": {"Factories 🏭": 40, "Vehicles 🚗": 25, "Road Dust 🌫️": 20, "Construction 🏗️": 10, "Household 👨‍👩‍👧": 5},
+        "Ghaziabad": {"Factories 🏭": 45, "Vehicles 🚗": 20, "Road Dust 🌫️": 20, "Construction 🏗️": 10, "Household 👨‍👩‍👧": 5},
+    }
+    
+    # Default for other cities
+    sources = city_base_sources.get(city_name, {
+        "Vehicles 🚗": 35, "Factories 🏭": 25, "Construction 🏗️": 20, 
+        "Road Dust 🌫️": 15, "Household 👨‍👩‍👧": 5
+    })
+    
+    # AQI-driven adjustments (higher AQI = more industrial/vehicular dominance)
+    if current_aqi > 250:  # Hazardous
+        sources["Factories 🏭"] += 15
+        sources["Vehicles 🚗"] += 10
+        sources["Construction 🏗️"] -= 10
+        sources["Road Dust 🌫️"] -= 10
+    elif current_aqi > 150:  # Unhealthy
+        sources["Vehicles 🚗"] += 10
+        sources["Factories 🏭"] += 5
+        sources["Construction 🏗️"] -= 5
+    elif current_aqi > 100:  # Moderate
+        sources["Road Dust 🌫️"] += 5
+        sources["Household 👨‍👩‍👧"] += 3
+    
+    # Normalize to 100%
+    total = sum(sources.values())
+    return {k: round((v/total)*100, 1) for k, v in sources.items()}
+
 # ========== UI STYLES ==========
 st.markdown("""
 <style>
@@ -90,6 +127,7 @@ current_aqi = aqi_data["aqi"]
 col1, col2 = st.columns([3, 1])
 with col1:
     st.metric("🌡️ Current AQI", f"{current_aqi}")
+
 # ========== AQI GAUGE ==========
 fig = go.Figure(go.Indicator(
     mode="gauge+number",
@@ -133,21 +171,32 @@ with tab1:
     fig.update_layout(height=450, plot_bgcolor="rgba(0,0,0,0.1)")
     st.plotly_chart(fig, use_container_width=True)
 
-# TAB 2: SOURCE DETECTION
+# TAB 2: SOURCE DETECTION (UPDATED - DYNAMIC!)
 with tab2:
-    st.subheader("🏭 AI Pollution Source Analysis")
-    sources = {
-        "Vehicles 🚗": 45 if "Delhi" in city_name or "Mumbai" in city_name else 35,
-        "Factories 🏭": 25 if any(x in city_name for x in ["Kanpur", "Ghaziabad"]) else 20,
-        "Construction 🏗️": 15,
-        "Road Dust 🌫️": 10,
-        "Household 👨‍👩‍👧": 5
-    }
-    fig = px.pie(values=list(sources.values()), names=list(sources.keys()),
-                 color_discrete_sequence=['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6'])
-    fig.update_traces(textposition='inside', textinfo='percent+label')
-    fig.update_layout(height=450)
-    st.plotly_chart(fig, use_container_width=True)
+    st.subheader(f"🏭 AI Pollution Source Analysis - {city_name}")
+    
+    # DYNAMIC SOURCES BASED ON CITY + AQI
+    sources = get_city_sources(city_name, current_aqi)
+    
+    col1, col2 = st.columns([1, 3])
+    with col1:
+        st.markdown("**Current Breakdown:**")
+        for source, percent in sources.items():
+            st.markdown(f"• **{source}**: **{percent}%**")
+    
+    with col2:
+        fig = px.pie(
+            values=list(sources.values()), 
+            names=list(sources.keys()),
+            color_discrete_sequence=['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6']
+        )
+        fig.update_traces(textposition='inside', textinfo='percent+label', textfont_size=14)
+        fig.update_layout(
+            height=450, 
+            title=f"AI Source Detection (AQI: {current_aqi})",
+            font=dict(color='white')
+        )
+        st.plotly_chart(fig, use_container_width=True)
 
 # TAB 3: MAP
 with tab3:
@@ -215,9 +264,3 @@ st.markdown("""
 <p style='color:#64748b;margin-top:1rem;'><b>Dev Modi</b> | Production ML | R²: 0.906</p>
 </div>
 """, unsafe_allow_html=True)
-
-
-
-
-
-

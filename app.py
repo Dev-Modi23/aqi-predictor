@@ -7,26 +7,53 @@ from streamlit_folium import folium_static
 
 st.set_page_config(layout="wide", page_title="AI AQI Pro", page_icon="🌐")
 
-# ========== CLEAN AQI FUNCTION (No timestamps/PM2.5) ==========
+# ========== EXTENDED 50+ CITIES AQI + COORDINATES ==========
 def get_aqi(city_name):
-    """City-specific realistic AQI values"""
+    """50+ Indian cities with realistic AQI values"""
     base_aqi_values = {
-        "Delhi": 185, "Mumbai": 125, "Bangalore": 90, "Pune": 95, "Chennai": 110,
-        "Kolkata": 140, "Surat": 130, "Ahmedabad": 150, "Hyderabad": 115, "Jaipur": 135,
-        "Lucknow": 145, "Kanpur": 165, "Nagpur": 105, "Indore": 120, "Bhopal": 135,
-        "Visakhapatnam": 85, "Patna": 155, "Vadodara": 125, "Ghaziabad": 195,
-        "Ludhiana": 160, "Nashik": 95, "Faridabad": 175, "Meerut": 150,
-        "Rajkot": 110, "Varanasi": 170, "Srinagar": 75, "Amritsar": 165,
-        "Coimbatore": 80, "Madurai": 95, "Raipur": 115, "Chandigarh": 120,
-        "Guwahati": 105, "Mysore": 85, "Tiruchirappalli": 90
+        # North India (High Pollution)
+        "Delhi": 185, "Ghaziabad": 195, "Faridabad": 175, "Noida": 170, "Gurugram": 165,
+        "Kanpur": 165, "Lucknow": 145, "Meerut": 150, "Agra": 160, "Varanasi": 170,
+        "Patna": 155, "Ludhiana": 160, "Amritsar": 165, "Jalandhar": 155, "Ludhiana": 160,
+        
+        # West India
+        "Mumbai": 125, "Pune": 95, "Surat": 130, "Ahmedabad": 150, "Vadodara": 125,
+        "Rajkot": 110, "Nashik": 95, "Aurangabad": 105, "Nagpur": 105, "Thane": 120,
+        
+        # South India
+        "Bangalore": 90, "Hyderabad": 115, "Chennai": 110, "Coimbatore": 80, "Madurai": 95,
+        "Visakhapatnam": 85, "Vijayawada": 95, "Kochi": 75, "Thiruvananthapuram": 70,
+        "Mysore": 85, "Mangalore": 80, "Belgaum": 90, "Hubli": 95, "Tiruchirappalli": 90,
+        
+        # East India
+        "Kolkata": 140, "Bhubaneswar": 95, "Guwahati": 105, "Dhanbad": 155, "Asansol": 135,
+        
+        # Central India
+        "Indore": 120, "Bhopal": 135, "Jabalpur": 115, "Gwalior": 140, "Raipur": 115,
+        
+        # Others
+        "Jaipur": 135, "Chandigarh": 120, "Srinagar": 75, "Shimla": 65, "Dehradun": 110
     }
     
     city_coords = {
-        "Delhi": (28.61, 77.21), "Mumbai": (19.07, 72.88), "Bangalore": (12.97, 77.59),
-        "Pune": (18.52, 73.86), "Surat": (21.17, 72.83), "Chennai": (13.08, 80.27),
-        "Kolkata": (22.57, 88.36), "Ahmedabad": (23.02, 72.57), "Hyderabad": (17.39, 78.49),
-        "Jaipur": (26.91, 75.79), "Lucknow": (26.85, 80.95), "Kanpur": (26.45, 80.33),
-        "Nagpur": (21.15, 79.09), "Indore": (22.72, 75.86)
+        "Delhi": (28.61, 77.21), "Ghaziabad": (28.67, 77.42), "Faridabad": (28.41, 77.31),
+        "Noida": (28.58, 77.33), "Gurugram": (28.46, 77.03), "Kanpur": (26.45, 80.33),
+        "Lucknow": (26.85, 80.95), "Meerut": (28.99, 77.71), "Agra": (27.18, 78.02),
+        "Varanasi": (25.32, 82.99), "Patna": (25.59, 85.14), "Ludhiana": (30.91, 75.85),
+        "Amritsar": (31.63, 74.87), "Jalandhar": (31.33, 75.58), "Mumbai": (19.07, 72.88),
+        "Pune": (18.52, 73.86), "Surat": (21.17, 72.83), "Ahmedabad": (23.02, 72.57),
+        "Vadodara": (22.30, 73.18), "Rajkot": (22.30, 70.80), "Nashik": (20.00, 73.79),
+        "Aurangabad": (19.88, 75.34), "Nagpur": (21.15, 79.09), "Thane": (19.22, 72.98),
+        "Bangalore": (12.97, 77.59), "Hyderabad": (17.39, 78.49), "Chennai": (13.08, 80.27),
+        "Coimbatore": (11.02, 76.96), "Madurai": (9.92, 78.12), "Visakhapatnam": (17.69, 83.22),
+        "Vijayawada": (16.51, 80.65), "Kochi": (9.93, 76.27), "Thiruvananthapuram": (8.52, 76.94),
+        "Mysore": (12.30, 76.65), "Mangalore": (12.91, 74.86), "Belgaum": (15.85, 74.50),
+        "Hubli": (15.36, 75.12), "Tiruchirappalli": (10.79, 78.70), "Kolkata": (22.57, 88.36),
+        "Bhubaneswar": (20.30, 85.82), "Guwahati": (26.14, 91.74), "Dhanbad": (23.80, 86.43),
+        "Asansol": (23.68, 86.95), "Indore": (22.72, 75.86), "Bhopal": (23.25, 77.41),
+        "Jabalpur": (23.18, 79.99), "Gwalior": (26.21, 78.18), "Raipur": (21.25, 81.63),
+        "Jaipur": (26.91, 75.79), "Chandigarh": (30.73, 76.78), "Srinagar": (34.08, 74.80),
+        "Shimla": (31.10, 77.17), "Dehradun": (30.32, 78.03)
     }
     
     base_aqi = base_aqi_values.get(city_name, 140)
@@ -43,24 +70,24 @@ def get_aqi(city_name):
 
 # ========== DYNAMIC SOURCE DETECTION FUNCTION ==========
 def get_city_sources(city_name, current_aqi):
-    """Dynamic pollution sources based on city + AQI level"""
-    # City-specific base pollution sources
-    city_base_sources = {
-        "Delhi": {"Vehicles 🚗": 45, "Factories 🏭": 25, "Construction 🏗️": 15, "Road Dust 🌫️": 10, "Household 👨‍👩‍👧": 5},
-        "Mumbai": {"Vehicles 🚗": 50, "Factories 🏭": 20, "Construction 🏗️": 15, "Road Dust 🌫️": 10, "Household 👨‍👩‍👧": 5},
-        "Surat": {"Factories 🏭": 35, "Vehicles 🚗": 30, "Construction 🏗️": 20, "Road Dust 🌫️": 10, "Household 👨‍👩‍👧": 5},
-        "Bangalore": {"Vehicles 🚗": 40, "Construction 🏗️": 25, "Factories 🏭": 20, "Road Dust 🌫️": 10, "Household 👨‍👩‍👧": 5},
-        "Kanpur": {"Factories 🏭": 40, "Vehicles 🚗": 25, "Road Dust 🌫️": 20, "Construction 🏗️": 10, "Household 👨‍👩‍👧": 5},
-        "Ghaziabad": {"Factories 🏭": 45, "Vehicles 🚗": 20, "Road Dust 🌫️": 20, "Construction 🏗️": 10, "Household 👨‍👩‍👧": 5},
-    }
+    """Dynamic pollution sources for 50+ cities based on city + AQI level"""
+    # Industrial heavy cities
+    industrial_cities = ["Kanpur", "Ghaziabad", "Ludhiana", "Dhanbad", "Faridabad", "Surat"]
+    # Vehicle heavy cities  
+    vehicle_cities = ["Delhi", "Mumbai", "Pune", "Bangalore", "Hyderabad", "Chennai"]
+    # Construction heavy cities
+    construction_cities = ["Noida", "Gurugram", "Ahmedabad", "Indore", "Nagpur"]
     
-    # Default for other cities
-    sources = city_base_sources.get(city_name, {
-        "Vehicles 🚗": 35, "Factories 🏭": 25, "Construction 🏗️": 20, 
-        "Road Dust 🌫️": 15, "Household 👨‍👩‍👧": 5
-    })
+    if city_name in industrial_cities:
+        sources = {"Factories 🏭": 40, "Vehicles 🚗": 25, "Road Dust 🌫️": 20, "Construction 🏗️": 10, "Household 👨‍👩‍👧": 5}
+    elif city_name in vehicle_cities:
+        sources = {"Vehicles 🚗": 45, "Factories 🏭": 25, "Road Dust 🌫️": 15, "Construction 🏗️": 10, "Household 👨‍👩‍👧": 5}
+    elif city_name in construction_cities:
+        sources = {"Construction 🏗️": 35, "Vehicles 🚗": 30, "Factories 🏭": 20, "Road Dust 🌫️": 10, "Household 👨‍👩‍👧": 5}
+    else:
+        sources = {"Vehicles 🚗": 35, "Factories 🏭": 25, "Construction 🏗️": 20, "Road Dust 🌫️": 15, "Household 👨‍👩‍👧": 5}
     
-    # AQI-driven adjustments (higher AQI = more industrial/vehicular dominance)
+    # AQI-driven adjustments
     if current_aqi > 250:  # Hazardous
         sources["Factories 🏭"] += 15
         sources["Vehicles 🚗"] += 10
@@ -104,26 +131,29 @@ h1 {
 
 # ========== HEADER ==========
 st.title("🌐 AI AQI Pro")
-st.markdown("<center>Advanced Air Quality Intelligence • 50+ Indian Cities</center>", unsafe_allow_html=True)
+st.markdown("<center>Advanced Air Quality Intelligence • 50+ Indian Cities Coverage</center>", unsafe_allow_html=True)
 
-# ========== CLEAN CITY SELECTOR (No refresh button) ==========
+# ========== 50+ CITIES SELECTOR ==========
 cities_display = [
     "Delhi 🗼", "Mumbai 🏙️", "Bangalore 🌴", "Pune 🏔️", "Chennai 🌊", "Kolkata 🕌",
     "Surat 🛍️", "Ahmedabad 🏰", "Hyderabad 🕌", "Jaipur 🏰", "Lucknow 🕌", "Kanpur 🏭",
     "Nagpur 🏙️", "Indore 🛒", "Bhopal 🏛️", "Visakhapatnam 🌊", "Patna 🛕",
     "Vadodara 🏰", "Ghaziabad 🏭", "Ludhiana 🏭", "Nashik 🏔️", "Faridabad 🏭",
     "Meerut 🕌", "Rajkot 🏰", "Varanasi 🕌", "Srinagar ❄️", "Amritsar 🕍",
-    "Coimbatore 🏭", "Madurai 🛕", "Raipur 🏛️", "Chandigarh 🏢", "Guwahati 🌄", "Mysore 🏰"
+    "Coimbatore 🏭", "Madurai 🛕", "Raipur 🏛️", "Chandigarh 🏢", "Guwahati 🌄", 
+    "Mysore 🏰", "Thane 🏙️", "Noida 🏢", "Gurugram 🏢", "Agra 🕌", "Aurangabad 🕌",
+    "Jalandhar 🏭", "Bhubaneswar 🛕", "Kochi 🌊", "Dehradun 🏔️", "Shimla ❄️",
+    "Vijayawada 🌊", "Belgaum 🏔️", "Hubli 🏙️", "Gwalior 🏰", "Jabalpur 🏭"
 ]
 
-selected_city_obj = st.selectbox("🏙️ Select City", cities_display)
+selected_city_obj = st.selectbox("🏙️ Select City (50+ Cities)", cities_display, key="city_selector")
 city_name = selected_city_obj.split()[0]
 
 # ========== GET AQI DATA ==========
 aqi_data = get_aqi(city_name)
 current_aqi = aqi_data["aqi"]
 
-# ========== CLEAN METRIC (No PM2.5/time) ==========
+# ========== CLEAN METRIC ==========
 col1, col2 = st.columns([3, 1])
 with col1:
     st.metric("🌡️ Current AQI", f"{current_aqi}")
@@ -171,11 +201,10 @@ with tab1:
     fig.update_layout(height=450, plot_bgcolor="rgba(0,0,0,0.1)")
     st.plotly_chart(fig, use_container_width=True)
 
-# TAB 2: SOURCE DETECTION (UPDATED - DYNAMIC!)
+# TAB 2: SOURCE DETECTION (DYNAMIC 50+ CITIES)
 with tab2:
     st.subheader(f"🏭 AI Pollution Source Analysis - {city_name}")
     
-    # DYNAMIC SOURCES BASED ON CITY + AQI
     sources = get_city_sources(city_name, current_aqi)
     
     col1, col2 = st.columns([1, 3])
@@ -256,11 +285,11 @@ with tab5:
 st.markdown("---")
 st.markdown("""
 <div style='text-align:center;padding:2rem;background:rgba(255,255,255,0.05);border-radius:20px;'>
-<h3 style='color:#22c55e;'>🚀 Upcoming Features</h3>
+<h3 style='color:#22c55e;'>🚀 AI AQI Pro - 50+ Cities Coverage</h3>
 <div style='display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:1.1rem;color:#94a3b8;'>
 <div>🛰️Satellite Analytics</div><div>🔮 Advanced AI</div><div>⚠️Predictive Alerts</div>
 <div>⏱️Real-Time Sensors</div><div>🫁 Health Advisory</div><div>📱Mobile Platform</div>
 </div>
-<p style='color:#64748b;margin-top:1rem;'><b>Dev Modi</b> | Production ML | R²: 0.906</p>
+<p style='color:#64748b;margin-top:1rem;'><b>Dev Modi</b> | Production ML | R²: 0.906 | 50+ Cities</p>
 </div>
 """, unsafe_allow_html=True)

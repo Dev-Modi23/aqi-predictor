@@ -1,5 +1,5 @@
-**🌍 AQI Predictor – Air Quality Prediction System**
-🎯 Sustainable Development Goal (SDG)
+**🌍 AQI Predictor – Air Quality Prediction System
+🎯 Sustainable Development Goal (SDG)**
 
 This project is aligned with United Nations Sustainable Development Goal 11: Sustainable Cities and Communities.
 
@@ -47,106 +47,97 @@ The system analyzes different pollutant levels and environmental factors to esti
 
 The dataset contains air pollution parameters such as:
 
-PM2.5
-
-PM10
-
-NO2
-
-SO2
-
-CO
-
-O3
-
-Temperature
-
-Humidity
-
+PM2.5,
+PM10,
+NO2,
+SO2,
+CO,
+O3,
+Temperature,
+Humidity,
 Wind Speed
 
 These parameters are used to train the machine learning model to predict AQI values.
 
 **⚙️ Technologies Used**
 
-Programming Language
+**Programming Language**
 
 Python
 
-Libraries
+**Libraries**
 
-Pandas
+Pandas,
+NumPy,
+Scikit-learn,
+Matplotlib,
+Seaborn,
 
-NumPy
+**Machine Learning Algorithms**
 
-Scikit-learn
-
-Matplotlib
-
-Seaborn
-
-Machine Learning Algorithms
-
-Random Forest Regressor
-
-Linear Regression
-
+Random Forest Regressor,
+Linear Regression,
 Decision Tree
 
-Visualization
+**Visualization**
 
-Interactive charts
-
+Interactive charts,
 AQI trend graphs
 
 **📊 AQI Categories**
+
 AQI Range	Air Quality	Health Impact
+
 0–50	Good	Minimal impact
+
 51–100	Moderate	Acceptable air quality
+
 101–150	Unhealthy for Sensitive Groups	Health risk for sensitive people
+
 151–200	Unhealthy	Everyone may feel effects
+
 201–300	Very Unhealthy	Serious health effects
+
 301+	Hazardous	Emergency conditions
+
 **🌱 Future Enhancements**
 
 Future improvements planned for the project:
 
-🌐 Real-time air quality sensor integration
-
-🛰 Satellite pollution monitoring
-
-📱 Mobile application
-
-🏙 Smart city IoT integration
-
-🤖 Deep learning prediction models
-
-👤 Personalized health recommendations
+🌐 Real-time air quality sensor integration,
+🛰 Satellite pollution monitoring,
+📱 Mobile application,
+🏙 Smart city IoT integration,
+🤖 Deep learning prediction models,
+👤 Personalized health recommendations,
 
 **📦 Installation**
+
 git clone https://github.com/Dev-Modi23/AQI-PREDICTOR.git
+
 cd AQI-PREDICTOR
+
 pip install -r requirements.txt
 
 **Run the project:**
 
 python app.py
+
 **📷 Project Dashboard**
 
 The system provides an interactive dashboard showing:
 
-AQI predictions
-
-Pollution trends
-
-Historical air quality data
-
-Health recommendations
+AQI predictions,
+Pollution trends,
+Historical air quality data,
+Health recommendations,
 
 **👨‍💻 Author**
 
 Dev Modi
 
 **GitHub:**
+
 https://github.com/Dev-Modi23
+
 

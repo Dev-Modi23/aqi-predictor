@@ -66,7 +66,7 @@ h1 {
 """, unsafe_allow_html=True)
 
 # ========== HEADER ==========
-st.title("🌍 AI AQI Pro")
+st.title("🌐 AI AQI Pro")
 st.markdown("<center>Advanced Air Quality Intelligence • 50+ Indian Cities</center>", unsafe_allow_html=True)
 
 # ========== CLEAN CITY SELECTOR (No refresh button) ==========
@@ -218,6 +218,7 @@ st.markdown("""
 <p style='color:#64748b;margin-top:1rem;'><b>Dev Modi</b> | Production ML | R²: 0.906</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 

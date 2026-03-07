@@ -160,4 +160,5 @@ def get_aqi(city_name):
     coords = {
         "Delhi": (28.61, 77.21), "Mumbai": (19.07, 72.88), "Bangalore": (12.97, 77.59),
         "Pune":
-        )
+    }
+

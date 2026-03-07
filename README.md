@@ -1,4 +1,4 @@
-🌍 AQI Predictor – Air Quality Prediction System
+**🌍 AQI Predictor – Air Quality Prediction System**
 🎯 Sustainable Development Goal (SDG)
 
 This project is aligned with United Nations Sustainable Development Goal 11: Sustainable Cities and Communities.
@@ -9,13 +9,13 @@ Air pollution is a major environmental and health issue in urban areas. Predicti
 
 This project contributes to SDG Target 11.6, which aims to reduce the environmental impact of cities by improving air quality monitoring and management.
 
-📊 Project Overview
+**📊 Project Overview**
 
 AQI Predictor is a Machine Learning-based system that predicts the Air Quality Index (AQI) based on historical pollution and environmental data.
 
 The system analyzes different pollutant levels and environmental factors to estimate the future air quality of a city. This helps users understand pollution trends and take preventive measures for health and environmental protection.
 
-🚀 Features
+**🚀 Features**
 
 🌆 City-based AQI Prediction
 
@@ -33,7 +33,7 @@ The system analyzes different pollutant levels and environmental factors to esti
 
 🧠 Machine Learning Workflow
 
-The system follows a complete ML pipeline:
+**The system follows a complete ML pipeline:**
 
 1️⃣ Data Collection
 2️⃣ Data Cleaning & Preprocessing
@@ -43,7 +43,7 @@ The system follows a complete ML pipeline:
 6️⃣ AQI Prediction
 7️⃣ Visualization & Dashboard
 
-🧪 Dataset
+**🧪 Dataset**
 
 The dataset contains air pollution parameters such as:
 
@@ -67,7 +67,7 @@ Wind Speed
 
 These parameters are used to train the machine learning model to predict AQI values.
 
-⚙️ Technologies Used
+**⚙️ Technologies Used**
 
 Programming Language
 
@@ -99,7 +99,7 @@ Interactive charts
 
 AQI trend graphs
 
-📊 AQI Categories
+**📊 AQI Categories**
 AQI Range	Air Quality	Health Impact
 0–50	Good	Minimal impact
 51–100	Moderate	Acceptable air quality
@@ -107,7 +107,7 @@ AQI Range	Air Quality	Health Impact
 151–200	Unhealthy	Everyone may feel effects
 201–300	Very Unhealthy	Serious health effects
 301+	Hazardous	Emergency conditions
-🌱 Future Enhancements
+**🌱 Future Enhancements**
 
 Future improvements planned for the project:
 
@@ -123,15 +123,15 @@ Future improvements planned for the project:
 
 👤 Personalized health recommendations
 
-📦 Installation
+**📦 Installation**
 git clone https://github.com/Dev-Modi23/AQI-PREDICTOR.git
 cd AQI-PREDICTOR
 pip install -r requirements.txt
 
-Run the project:
+**Run the project:**
 
 python app.py
-📷 Project Dashboard
+**📷 Project Dashboard**
 
 The system provides an interactive dashboard showing:
 
@@ -143,9 +143,10 @@ Historical air quality data
 
 Health recommendations
 
-👨‍💻 Author
+**👨‍💻 Author**
 
 Dev Modi
 
-GitHub:
+**GitHub:**
 https://github.com/Dev-Modi23
+

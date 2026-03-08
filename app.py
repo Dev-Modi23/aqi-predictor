@@ -37,21 +37,13 @@ city_coords = {
     "Bangalore": (12.97,77.59),"Hyderabad": (17.39,78.49),"Chennai": (13.08,80.27),
     "Coimbatore": (11.02,76.96),"Madurai": (9.92,78.12),"Visakhapatnam": (17.69,83.22),
     "Vijayawada": (16.51,80.65),"Kochi": (9.93,76.27),"Thiruvananthapuram": (8.52,76.94),
-    "Mysore": (12.30,76.65),"Mangalore": (12.91,74.86),"Belgaum": (15.85,74.50),
-    "Hubli": (15.36,75.12),"Tiruchirappalli": (10.79,78.70),"Salem": (11.66,78.15),
-    "Warangal": (18.00,79.58),"Kolkata": (22.57,88.36),"Bhubaneswar": (20.30,85.82),
-    "Guwahati": (26.14,91.74),"Dhanbad": (23.80,86.43),"Asansol": (23.68,86.95),
-    "Durgapur": (23.52,87.31),"Indore": (22.72,75.86),"Bhopal": (23.25,77.41),
-    "Jabalpur": (23.18,79.99),"Gwalior": (26.21,78.18),"Raipur": (21.25,81.63),
+    "Mysore": (12.30,76.65),"Belgaum": (15.85,74.50),"Hubli": (15.36,75.12),
+    "Gwalior": (26.21,78.18),"Jabalpur": (23.18,79.99),"Raipur": (21.25,81.63),
     "Bilaspur": (22.08,82.14),"Jaipur": (26.91,75.79),"Chandigarh": (30.73,76.78),
     "Srinagar": (34.08,74.80),"Shimla": (31.10,77.17),"Dehradun": (30.32,78.03),
-    "Gorakhpur": (26.75,83.37),"Allahabad": (25.45,81.85),"Ranchi": (23.34,85.31),
-    "Biharsharif": (25.20,85.99),"Bareilly": (28.37,79.43),"Aligarh": (27.90,78.09),
-    "Murwara": (23.84,80.39),"Saharanpur": (29.96,77.55),"Gorakhpur": (26.75,83.37),
-    "Bhiwandi": (19.30,73.06),"Salem": (11.66,78.15),"Mira-Bhayandar": (19.28,72.87),
-    "Bhilai": (21.19,81.35),"Berhampur": (19.31,84.79),"Bharatpur": (27.22,77.49),
-    "Begusarai": (25.42,86.13),"Ambattur": (13.11,80.15),"Tiruppur": (11.11,77.34),
-    "Tirupati": (13.63,79.42),"Thanjavur": (10.79,79.14),"Thane": (19.22,72.98)
+    "Gorakhpur": (26.75,83.37),"Allahabad": (25.45,81.85),"Bhubaneswar": (20.30,85.82),
+    "Guwahati": (26.14,91.74),"Dhanbad": (23.80,86.43),"Asansol": (23.68,86.95),
+    "Durgapur": (23.52,87.31)
 }
 
 # ================= CITY POLLUTION BASE DATA (60+ CITIES) =================
@@ -61,13 +53,21 @@ city_pollution = {
     "Kolkata":[140,240,130],"Pune":[100,170,90],"Hyderabad":[105,185,95],
     "Jaipur":[135,225,125],"Lucknow":[125,205,115],"Kanpur":[155,255,145],
     "Nagpur":[115,195,105],"Indore":[95,165,85],"Bhopal":[110,190,100],
-    "Visakhapatnam":[85,155,75],"Patna":[145,245,135],"Ranchi":[120,200,110],
-    "Biharsharif":[140,230,130],"Bareilly":[110,190,100],"Aligarh":[125,210,115],
-    "Murwara":[135,220,125],"Saharanpur":[105,185,95],"Bhiwandi":[130,215,120],
-    "Salem":[95,170,85],"Mira-Bhayandar":[125,205,115],"Bhilai":[115,195,105],
-    "Berhampur":[90,160,80],"Bharatpur":[130,215,120],"Begusarai":[145,240,135],
-    "Ambattur":[100,175,90],"Tiruppur":[85,155,75],"Tirupati":[95,170,85],
-    "Thanjavur":[90,165,80],"Thane":[120,200,110]
+    "Visakhapatnam":[85,155,75],"Patna":[145,245,135],"Vadodara":[140,225,130],
+    "Ghaziabad":[165,280,155],"Ludhiana":[135,220,125],"Nashik":[105,180,95],
+    "Faridabad":[160,270,150],"Meerut":[120,200,110],"Rajkot":[130,210,120],
+    "Varanasi":[145,240,135],"Srinagar":[80,140,70],"Amritsar":[125,210,115],
+    "Coimbatore":[90,160,80],"Madurai":[95,170,85],"Raipur":[115,195,105],
+    "Chandigarh":[100,175,90],"Guwahati":[110,185,100],"Mysore":[85,150,75],
+    "Thane":[120,200,110],"Noida":[155,260,145],"Gurugram":[150,250,140],
+    "Agra":[135,225,125],"Aurangabad":[105,185,95],"Jalandhar":[130,215,120],
+    "Bhubaneswar":[95,170,85],"Kochi":[75,130,65],"Dehradun":[105,180,95],
+    "Shimla":[70,120,60],"Vijayawada":[90,160,80],"Belgaum":[85,150,75],
+    "Hubli":[95,170,85],"Gwalior":[125,205,115],"Jabalpur":[115,195,105],
+    "Panipat":[145,240,135],"Solapur":[105,185,95],"Kolhapur":[95,170,85],
+    "Salem":[90,160,80],"Warangal":[110,190,100],"Dhanbad":[160,265,150],
+    "Asansol":[155,255,145],"Durgapur":[150,245,140],"Bilaspur":[120,200,110],
+    "Gorakhpur":[130,215,120],"Allahabad":[140,230,130]
 }
 
 # ================= FIXED ML PREDICTION =================
@@ -101,9 +101,9 @@ def predict_aqi(city):
 
 # ================= SOURCE ANALYSIS =================
 def get_city_sources(city_name, current_aqi):
-    industrial_cities = ["Kanpur","Ghaziabad","Ludhiana","Dhanbad","Faridabad","Surat","Panipat","Durgapur","Murwara","Bhiwandi"]
-    vehicle_cities = ["Delhi","Mumbai","Pune","Bangalore","Hyderabad","Chennai","Thane","Nashik","Mira-Bhayandar"]
-    construction_cities = ["Noida","Gurugram","Ahmedabad","Indore","Nagpur","Gwalior","Bhilai"]
+    industrial_cities = ["Kanpur","Ghaziabad","Ludhiana","Dhanbad","Faridabad","Surat","Panipat","Durgapur","Jabalpur","Solapur","Kolhapur","Salem","Warangal","Asansol","Bilaspur"]
+    vehicle_cities = ["Delhi","Mumbai","Pune","Bangalore","Hyderabad","Chennai","Thane","Nashik","Noida","Gurugram"]
+    construction_cities = ["Noida","Gurugram","Ahmedabad","Indore","Nagpur","Gwalior","Coimbatore"]
 
     if city_name in industrial_cities:
         sources = {"Factories 🏭":40,"Vehicles 🚗":25,"Road Dust 🌫️":20,"Construction 🏗️":10,"Household 👨‍👩‍👧":5}
@@ -131,15 +131,19 @@ color:white;}
 st.title("🌐 AQI PREDICTOR")
 st.markdown("<center>AI Based Air Quality Prediction - 60+ Cities</center>",unsafe_allow_html=True)
 
-# ================= CITY SELECT (60+ Cities) =================
+# ================= EXACT CITY LIST YOU PROVIDED =================
 cities_display=[
-"Delhi 🗼","Mumbai 🏙️","Bangalore 🌴","Pune 🏔️","Chennai 🌊","Kolkata 🕌",
-"Surat 🛍️","Ahmedabad 🏰","Hyderabad 🕌","Jaipur 🏰","Lucknow 🕌","Kanpur 🏭",
-"Nagpur 🏙️","Indore 🛒","Bhopal 🏛️","Visakhapatnam 🌊","Patna 🛕",
-"Ranchi 🏔️","Biharsharif 🛕","Bareilly 🕌","Aligarh 🕌","Murwara 🏭",
-"Saharanpur 🕌","Bhiwandi 🏭","Salem 🛕","Mira-Bhayandar 🏙️","Bhilai 🏭",
-"Berhampur 🏖️","Bharatpur 🏰","Begusarai 🏭","Ambattur 🏭","Tiruppur 🛍️",
-"Tirupati 🛕","Thanjavur 🛕","Thane 🏙️"
+    "Delhi 🗼", "Mumbai 🏙️", "Bangalore 🌴", "Pune 🏔️", "Chennai 🌊", "Kolkata 🕌",
+    "Surat 🛍️", "Ahmedabad 🏰", "Hyderabad 🕌", "Jaipur 🏰", "Lucknow 🕌", "Kanpur 🏭",
+    "Nagpur 🏙️", "Indore 🛒", "Bhopal 🏛️", "Visakhapatnam 🌊", "Patna 🛕",
+    "Vadodara 🏰", "Ghaziabad 🏭", "Ludhiana 🏭", "Nashik 🏔️", "Faridabad 🏭",
+    "Meerut 🕌", "Rajkot 🏰", "Varanasi 🕌", "Srinagar ❄️", "Amritsar 🕍",
+    "Coimbatore 🏭", "Madurai 🛕", "Raipur 🏛️", "Chandigarh 🏢", "Guwahati 🌄", 
+    "Mysore 🏰", "Thane 🏙️", "Noida 🏢", "Gurugram 🏢", "Agra 🕌", "Aurangabad 🕌",
+    "Jalandhar 🏭", "Bhubaneswar 🛕", "Kochi 🌊", "Dehradun 🏔️", "Shimla ❄️",
+    "Vijayawada 🌊", "Belgaum 🏔️", "Hubli 🏙️", "Gwalior 🏰", "Jabalpur 🏭",
+    "Panipat 🏭", "Solapur 🏭", "Kolhapur 🏭", "Salem 🏭", "Warangal 🏭",
+    "Dhanbad 🏭", "Asansol 🏭", "Durgapur 🏭", "Bilaspur 🏭", "Gorakhpur 🏭", "Allahabad 🕌"
 ]
 
 selected_city=st.selectbox("Select City (60+ Coverage)",cities_display)
@@ -179,12 +183,10 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["🔮 AI Forecast", "🏭 Source Detecti
 with tab1:
     st.subheader("🔮 5-Day AI AQI Forecast")
     
-    # SEED FOR CONSISTENT RESULTS + REALISTIC FLUCTUATIONS
-    np.random.seed(hash(city_name) % (2**32))  # City-specific seed
+    np.random.seed(hash(city_name) % (2**32))
     forecast = [current_aqi]
     
     for i in range(4):
-        # ±8% realistic daily variation (UP + DOWN)
         change = np.random.uniform(-0.08, 0.08)
         next_aqi = forecast[-1] * (1 + change)
         forecast.append(max(50, min(500, next_aqi)))
@@ -193,7 +195,6 @@ with tab1:
     fig = px.line(x=days, y=forecast, markers=True, color_discrete_sequence=['#22c55e'],
                   title=f"AI Prediction - {city_name} (R²: 0.906)")
     
-    # TREND INDICATOR
     trend_change = ((forecast[-1] - forecast[0]) / forecast[0]) * 100
     trend_emoji = "🟢" if trend_change > 0 else "🔴"
     
@@ -267,7 +268,7 @@ with tab5:
 st.markdown("---")
 st.markdown("""
 <div style='text-align:center;padding:2rem;background:rgba(255,255,255,0.05);border-radius:20px;'>
-<h3 style='color:#22c55e;'>🚀 AQI PREDICTOR - 60+ Cities Coverage</h3>
+<h3 style='color:#22c55e;'>🚀 UPCOMING FEATURES</h3>
 <div style='display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:1.1rem;color:#94a3b8;'>
 <div>🛰️Satellite Analytics</div><div>🔮 Advanced AI</div><div>⚠️Predictive Alerts</div>
 <div>⏱️Real-Time Sensors</div><div>🫁 Health Advisory</div><div>📱Mobile Platform</div>

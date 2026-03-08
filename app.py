@@ -77,23 +77,22 @@ city_pollution = {
 def predict_aqi(city):
     pm25, pm10, no2 = city_pollution.get(city, [120, 200, 100])
     
-    # YOUR EXACT MODEL FEATURES
+    # MOST COMMON ML FEATURE NAMES
     features = pd.DataFrame([{
-        'PM2.5': pm25,
+        'PM2_5': pm25,          # ← FIXED: Underscore
         'PM10': pm10,
         'NO2': no2,
-        'PM2.5_lag1': pm25 * 0.95,
+        'PM2_5_lag1': pm25 * 0.95,
         'AQI_lag1': pm25 * 1.1,
-        'PM2.5_7d_avg': pm25 * 0.9,
+        'PM2_5_7d_avg': pm25 * 0.9,
         'AQI_7d_avg': pm25 * 1.05
     }])
     
-    # YOUR TRAINED MODEL PIPELINE
     X_scaled = scaler_X.transform(features)
     pred_scaled = model.predict(X_scaled)
     prediction = scaler_y.inverse_transform(pred_scaled.reshape(-1, 1))
-    
     return int(prediction[0][0])
+
 
 # ================= SOURCE ANALYSIS =================
 def get_city_sources(city_name, current_aqi):
@@ -269,3 +268,4 @@ st.markdown("""
 <p style='color:#64748b;margin-top:1rem;'><b>Dev Modi</b> | Production ML App | R²: 0.906</p>
 </div>
 """, unsafe_allow_html=True)
+

@@ -10,7 +10,7 @@ st.set_page_config(layout="wide", page_title="AQI PREDICTOR", page_icon="🌐")
 # ========== 58 CITIES - FIXED AQI (SAME FOR ALL USERS) ==========
 def get_aqi(city_name):
    """50+ Indian cities with realistic AQI values"""
-    fixed_aqi_values = {
+   fixed_aqi_values = {
         # North India (High Pollution)
         "Delhi": 185, "Ghaziabad": 195, "Faridabad": 175, "Noida": 170, "Gurugram": 165,
         "Kanpur": 165, "Lucknow": 145, "Meerut": 150, "Agra": 160, "Varanasi": 170,
@@ -255,6 +255,7 @@ st.markdown("""
 <p style='color:#64748b;margin-top:1rem;'><b>Dev Modi</b> | Production ML | R²: 0.906 | 50+ Cities</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 

@@ -146,7 +146,7 @@ cities_display=[
     "Dhanbad 🏭", "Asansol 🏭", "Durgapur 🏭", "Bilaspur 🏭", "Gorakhpur 🏭", "Allahabad 🕌"
 ]
 
-selected_city=st.selectbox("Select City (60+ Coverage)",cities_display)
+selected_city=st.selectbox("Select City (50+ Coverage)",cities_display)
 city_name=selected_city.split()[0]
 
 # ================= AQI DATA =================
@@ -273,6 +273,7 @@ st.markdown("""
 <div>🛰️Satellite Analytics</div><div>🔮 Advanced AI</div><div>⚠️Predictive Alerts</div>
 <div>⏱️Real-Time Sensors</div><div>🫁 Health Advisory</div><div>📱Mobile Platform</div>
 </div>
-<p style='color:#64748b;margin-top:1rem;'><b>Dev Modi</b> | Production ML | R²: 0.906 | 60+ Cities</p>
+<p style='color:#64748b;margin-top:1rem;'><b>Code4Air</b> | Green Guardian | 50+ Cities</p>
 </div>
 """, unsafe_allow_html=True)
+

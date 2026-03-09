@@ -136,4 +136,9 @@ python app.py
 # 👨‍💻 Author
 
 **Code4Air**\
+**Team Members
+- Dev Modi
+- Prachi Khamanwala
+- Manav Kankotiya
+- Krutaswi Bhalani**
 GitHub: https://github.com/Dev-Modi23

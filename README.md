@@ -142,4 +142,4 @@ Team Members
 - Manav Kankotiya
 - Krutaswi Bhalani
 
-GitHub: https://github.com/Dev-Modi23
+GitHub: https://github.com/DG-Modi
